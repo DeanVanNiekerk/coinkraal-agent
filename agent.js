@@ -42,12 +42,15 @@ class Agent {
                     .end(errorHandler)
                     .then(this.responseBody),
         };
-
-
     }
 
-    responseBody = res => res.body;
-    responseText = res => res.text;
+    responseBody(res) {
+        return res.body
+    };
+
+    responseText(res) {
+        return res.text;
+    }
 
     getApi(api) {
         if(api.indexOf('http') == -1)

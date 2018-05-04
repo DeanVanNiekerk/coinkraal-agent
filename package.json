@@ -1,11 +1,11 @@
 {
   "name": "coinkraal-api-interface",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Api Interface for CoinKraal Applications",
   "main": "index.js",
   "scripts": {
     "test": "jasmine-node interface --color --verbose",
-    "test-dev": "jasmine-node interface --autotest --watch --color --verbose"
+    "test-dev": "jasmine-node interface --autotest --color --verbose --watch"
   },
   "repository": {
     "type": "git",
