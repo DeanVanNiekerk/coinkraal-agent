@@ -13,31 +13,31 @@ class Agent {
         this.requests = {
             del: url =>
                 this.superagent
-                    .del(getApi(url))
+                    .del(this.getApi(url))
                     .use(tokenHandler)
                     .end(errorHandler)
                     .then(this.responseBody),
             get: url =>
                 this.superagent
-                    .get(getApi(url))
+                    .get(this.getApi(url))
                     .use(tokenHandler)
                     .end(errorHandler)
                     .then(this.responseBody),
             getText: url =>
                 this.superagent
-                    .get(getApi(url))
+                    .get(this.getApi(url))
                     .use(tokenHandler)
                     .end(errorHandler)
                     .then(this.responseText),
             put: (url, body) =>
                 this.superagent
-                    .put(getApi(url), body)
+                    .put(this.getApi(url), body)
                     .use(tokenHandler)
                     .end(errorHandler)
                     .then(this.responseBody),
             post: (url, body) =>
                 this.superagent
-                    .post(getApi(url), body)
+                    .post(this.getApi(url), body)
                     .use(tokenHandler)
                     .end(errorHandler)
                     .then(this.responseBody),
