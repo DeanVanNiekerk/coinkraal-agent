@@ -7,36 +7,37 @@ class Agent {
 
     constructor(apiRoot, tokenHandler, errorHandler) {
 
+        this.apiRoot = apiRoot;
         this.superagent = superagentPromise(_superagent, global.Promise);
 
         this.requests = {
             del: url =>
                 this.superagent
-                    .del(`${apiRoot}${url}`)
+                    .del(getApi(url))
                     .use(tokenHandler)
                     .end(errorHandler)
                     .then(this.responseBody),
             get: url =>
                 this.superagent
-                    .get(`${apiRoot}${url}`)
+                    .get(getApi(url))
                     .use(tokenHandler)
                     .end(errorHandler)
                     .then(this.responseBody),
             getText: url =>
                 this.superagent
-                    .get(`${apiRoot}${url}`)
+                    .get(getApi(url))
                     .use(tokenHandler)
                     .end(errorHandler)
                     .then(this.responseText),
             put: (url, body) =>
                 this.superagent
-                    .put(`${apiRoot}${url}`, body)
+                    .put(getApi(url), body)
                     .use(tokenHandler)
                     .end(errorHandler)
                     .then(this.responseBody),
             post: (url, body) =>
                 this.superagent
-                    .post(`${apiRoot}${url}`, body)
+                    .post(getApi(url), body)
                     .use(tokenHandler)
                     .end(errorHandler)
                     .then(this.responseBody),
@@ -47,6 +48,12 @@ class Agent {
 
     responseBody = res => res.body;
     responseText = res => res.text;
+
+    getApi(api) {
+        if(api.indexOf('http') == -1)
+            return `${this.apiRoot}${api}`;
+        return api;
+    }
 
 }
 

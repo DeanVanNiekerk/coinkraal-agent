@@ -2,9 +2,9 @@
 var Auth = require('./auth');
 var MockAgent = require('../mocks/mock-agent')
 
-describe('Auth()', function () {
+describe('Auth', function () {
 
-    it('googleLogin - valid url', function (done) {
+    it('googleLogin()', function (done) {
 
         //Given:
         var agent = new MockAgent();
@@ -24,7 +24,7 @@ describe('Auth()', function () {
 
     });
 
-    it('facebookLogin - valid url', function (done) {
+    it('facebookLogin()', function (done) {
 
         //Given:
         var agent = new MockAgent();

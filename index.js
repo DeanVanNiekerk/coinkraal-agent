@@ -1,4 +1,4 @@
 
-let PortfolioChartService = require('./services/portfolio-chart/portfolio-chart-service');
+let Api = require('./api');
 
-module.exports = PortfolioChartService;
+module.exports = Api;
