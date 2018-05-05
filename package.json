@@ -1,6 +1,6 @@
 {
   "name": "coinkraal-api-interface",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Api Interface for CoinKraal Applications",
   "main": "index.js",
   "scripts": {

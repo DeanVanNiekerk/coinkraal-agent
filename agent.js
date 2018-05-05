@@ -24,10 +24,10 @@ class Agent {
     }
 
     defaultHanders(a) {
-        if(tokenHandler)
-            a = a.use(tokenHandler);
-        if(tokenHandler)
-            a = a.end(errorHandler);
+        if(this.tokenHandler)
+            a = a.use(this.tokenHandler);
+        if(this.errorHandler)
+            a = a.end(this.errorHandler);
         return a;
     }
 
