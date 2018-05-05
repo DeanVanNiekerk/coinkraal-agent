@@ -8,40 +8,27 @@ class Agent {
     constructor(apiRoot, tokenHandler, errorHandler) {
 
         this.apiRoot = apiRoot;
+
+        this.tokenHandler = tokenHandler;
+        this.errorHandler = errorHandler;
+
         this.superagent = superagentPromise(_superagent, global.Promise);
 
         this.requests = {
-            del: url =>
-                this.superagent
-                    .del(this.getApi(url))
-                    .use(tokenHandler)
-                    .end(errorHandler)
-                    .then(this.responseBody),
-            get: url =>
-                this.superagent
-                    .get(this.getApi(url))
-                    .use(tokenHandler)
-                    .end(errorHandler)
-                    .then(this.responseBody),
-            getText: url =>
-                this.superagent
-                    .get(this.getApi(url))
-                    .use(tokenHandler)
-                    .end(errorHandler)
-                    .then(this.responseText),
-            put: (url, body) =>
-                this.superagent
-                    .put(this.getApi(url), body)
-                    .use(tokenHandler)
-                    .end(errorHandler)
-                    .then(this.responseBody),
-            post: (url, body) =>
-                this.superagent
-                    .post(this.getApi(url), body)
-                    .use(tokenHandler)
-                    .end(errorHandler)
-                    .then(this.responseBody),
+            del: url => this.defaultHanders(this.superagent.del(this.getApi(url))).then(this.responseBody),
+            get: url => this.defaultHanders(this.superagent.get(this.getApi(url))).then(this.responseBody),
+            getText: url => this.defaultHanders(this.superagent.get(this.getApi(url))).then(this.responseText),
+            put: (url, body) => this.defaultHanders(this.superagent.put(this.getApi(url), body)).then(this.responseBody),
+            post: (url, body) => this.defaultHanders(this.superagent.post(this.getApi(url), body)).then(this.responseBody),
         };
+    }
+
+    defaultHanders() {
+        if(tokenHandler)
+            a = a.use(tokenHandler);
+        if(tokenHandler)
+            a = a.end(errorHandler);
+        return a;
     }
 
     responseBody(res) {
