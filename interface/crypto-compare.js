@@ -30,7 +30,7 @@ class CryptoCompare {
 
     get24HrPriceChange(fromCurrency, toCurrency) {
         return this.agent.requests.get(`${this.apiRoot}/data/pricemultifull?fsyms=${this.fixSym(fromCurrency)}&tsyms=${this.fixSym(toCurrency)}`)
-            .then(body => body.RAW[this.fixSym(fromCurrency)] ? body.RAW[fixSym(fromCurrency)][this.fixSym(toCurrency)].CHANGEPCT24HOUR : null)
+            .then(body => body.RAW[this.fixSym(fromCurrency)] ? body.RAW[this.fixSym(fromCurrency)][this.fixSym(toCurrency)].CHANGEPCT24HOUR : null)
     }
 
     getCoinExchanges(fromCurrency, toCurrency, limit) {
