@@ -12,6 +12,12 @@ class CryptoCompare {
             .then(body => body[this.fixSym(fromCurrency)][this.fixSym(toCurrency)]);
     }
 
+    getHistoricalPriceByFrequency(fromCurrency, toCurrency, limit, frequency) {
+        if (frequency == 'days')
+            return this.getDailyHistoricalPrice(fromCurrency, toCurrency, limit);
+        return this.getHourlyHistoricalPrice(fromCurrency, toCurrency, limit);
+    }
+
     getDailyHistoricalPrice(fromCurrency, toCurrency, limit) {
         return this.agent.requests.get(`${this.apiRoot}/data/histoday?fsym=${this.fixSym(fromCurrency)}&tsym=${this.fixSym(toCurrency)}&limit=${limit}`)
             .then(body => body.Data);
