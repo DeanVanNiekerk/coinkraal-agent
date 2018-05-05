@@ -45,7 +45,7 @@ class CryptoCompare {
 
     //These fix functions are needed because CryptoCompare and CoinMarketCap use different symbols for some coins .... meh
     fixSyms(symbols) {
-        return symbols.map(fixSym);
+        return symbols.map(this.fixSym);
     }
 
     fixSym(symbol) {
