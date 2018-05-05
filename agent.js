@@ -23,7 +23,7 @@ class Agent {
         };
     }
 
-    defaultHanders() {
+    defaultHanders(a) {
         if(tokenHandler)
             a = a.use(tokenHandler);
         if(tokenHandler)
