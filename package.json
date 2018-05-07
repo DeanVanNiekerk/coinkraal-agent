@@ -1,7 +1,7 @@
 {
-  "name": "coinkraal-api-interface",
+  "name": "coinkraal-agent",
   "version": "0.2.9",
-  "description": "Api Interface for CoinKraal Applications",
+  "description": "Agents for querying CoinKraal APIs",
   "main": "index.js",
   "scripts": {
     "test": "jasmine-node interface --color --verbose",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DeanVanNiekerk/coinkraal-api-interace.git"
+    "url": "git+https://github.com/DeanVanNiekerk/coinkraal-agent.git"
   },
   "author": "Dean van Niekerk",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/DeanVanNiekerk/coinkraal-api-interace/issues"
+    "url": "https://github.com/DeanVanNiekerk/coinkraal-agent/issues"
   },
-  "homepage": "https://github.com/DeanVanNiekerk/coinkraal-api-interace#readme",
+  "homepage": "https://github.com/DeanVanNiekerk/coinkraal-agent#readme",
   "devDependencies": {
     "jasmine-node": "^1.14.5"
   },
