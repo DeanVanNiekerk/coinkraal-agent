@@ -65,4 +65,22 @@ describe('Coin', function () {
 
     });
 
+    it('getCoins', function (done) {
+
+        //Given:
+        var agent = new MockAgent();
+        var api = new Coin(agent);
+        
+        //When: 
+        var promise = api.getCoins();
+
+        //Then:
+        promise.then((url) => {
+            expect(url).toBe(`/api/coins`);
+            done();
+        })
+
+    });
+
+
 })

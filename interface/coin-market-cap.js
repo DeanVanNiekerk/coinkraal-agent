@@ -7,8 +7,8 @@ class CoinMarketCap {
         this.apiRoot = 'https://api.coinmarketcap.com/v2';
     }
 
-    getCoinTopList(start, limit) {
-        return this.agent.requests.get(`${this.apiRoot}/ticker/?start=${start}&limit=${limit}`)
+    getCoinList(start, limit, convert) {
+        return this.agent.requests.get(`${this.apiRoot}/ticker/?start=${start}&limit=${limit}&convert=${convert}`)
             .then(data => {
 
                 let arr = [];
@@ -37,6 +37,13 @@ class CoinMarketCap {
                 }
                 return arr;
 
+            });
+    }
+
+    getFullCoinList() {
+        return this.agent.requests.get(`${this.apiRoot}/listings/`)
+            .then(data => {
+                return data.data;
             });
     }
 

@@ -16,6 +16,10 @@ class Coin {
     getGlobalData() {
         return this.agent.requests.get(`/api/coins/globaldata`);
     }
+
+    getCoins() {
+        return this.agent.requests.get(`/api/coins`);
+    }
 }
 
 module.exports = Coin;
