@@ -1,6 +1,6 @@
 {
   "name": "coinkraal-agent",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "description": "Agents for querying CoinKraal APIs",
   "main": "index.js",
   "scripts": {

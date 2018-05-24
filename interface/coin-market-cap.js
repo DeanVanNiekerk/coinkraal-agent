@@ -47,6 +47,10 @@ class CoinMarketCap {
             });
     }
 
+    getCoinTopList(start, limit) {
+        return this.agent.requests.get(`https://api.coinmarketcap.com/v1/ticker/?start=${start}&limit=${limit}`);
+    }
+
 }
 
 module.exports = CoinMarketCap;
